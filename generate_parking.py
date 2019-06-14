@@ -346,6 +346,7 @@ for idx, row in sftaz_all.iterrows():
     output.append(newrow)
 output = pd.DataFrame(output, columns = ['taz','parkingType','pricingModel','chargingType','numStalls','feeInCents','ReservedFor'])
 output = output.loc[output['numStalls'] > 0, :]
+output['numStalls'] = output['numStalls'].astype('int')
 output.to_csv('output/sf-taz-parking-base.csv',index=False)
 
 
